@@ -2,7 +2,7 @@
 
 ![Screenshot of spurtCMS using Presentation Tool to do Visual Editing](	https://spurtcms.com/image-resize?name=media/blogstarter.png)
 
-This starter is a statically generated blog that uses Next.js App Router for the frontend and [spurtcms](https://dev.spurtcms.com) to handle its content. It comes with a native spurtcms that offers features like real-time collaboration and visual editing with live updates.Check out the [project documentaion](https://dev.spurtcms.com/documentation) for more details.
+This starter is a statically generated blog that uses Next.js App Router for the frontend and [spurtcms](https://spurtcms.com) to handle its content. It comes with a native spurtcms that offers features like real-time collaboration and visual editing with live updates.Check out the [project documentaion](https://spurtcms.com/documentation) for more details.
 
 The Studio connects to spurtcms, which gives you hosted content APIs with a flexible query language, on-demand image transformations, powerful patching, and more. You can use this starter to kick-start a blog or learn these technologies.
 
