@@ -13,7 +13,7 @@ export default function Post({ data, activeIndex, scrollX }) {
   return (
     <>
 
-      <div>
+      <div className="flex flex-col">
         <Link href={`/posts/${data.slug}`}>
           <div className="mb-6 block h-[236px]">
             {data.coverImage ?
@@ -30,7 +30,7 @@ export default function Post({ data, activeIndex, scrollX }) {
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
                   currentTarget.src = "/img/no-image.png";
-              }}
+                }}
               />
               :
 
@@ -46,12 +46,12 @@ export default function Post({ data, activeIndex, scrollX }) {
               />
             }
           </div>
-          <h1 className="text-3xxl font-bold line-clamp-2 text-black hover:underline   leading-[2.625rem] line-clamp-2"> {data.title}</h1></Link>
+          <h1 className="text-3xxl font-bold  text-black hover:underline   leading-[2.625rem] "> {data.title}</h1></Link>
         <p className="text-base text-black my-3">{moment(data.createdOn).format("MMM DD, YYYY")} </p>
         <div className="text-lg text-current  font-light line-clamp-3 mb-3 desc">
           <div dangerouslySetInnerHTML={{ __html: data?.description.replaceAll("<br>", "").replaceAll(/<img[^>]*>/g, "").replace(/p-\[24px_60px_10px\]/g, "") }}></div>
         </div>
-        <div className="flex items-center gap-x-2">
+        <div className="flex items-center gap-x-2 mt-auto">
           <div class="flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300">
             {data?.authorDetails?.profileImagePath == "" || data?.authorDetails?.profileImagePath == null ?
               <>

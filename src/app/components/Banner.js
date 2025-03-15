@@ -37,11 +37,11 @@ export default function Banner({ bannerShow, router }) {
               <h1 className="text-4xl2 font-bold text-black line-clamp-2 cursor-pointer" onClick={() => handleNavigation(bannerShow?.[0]?.slug)}>{bannerShow?.[0]?.title}</h1>
               <p className="text-base text-black my-3">{moment(bannerShow?.[0]?.createdOn).format("MMM DD, YYYY")}</p>
               <div className="flex items-center gap-x-2">
-                <div class="flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300">
-                  {bannerShow?.[0]?
+                <div class="flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300 ">
+                  {bannerShow?.[0] ?
                     <>
                       {bannerShow?.[0]?.authorDetails?.firstName?.[0] ?
-                        <span className="text-3xxl text-white">{bannerShow?.[0]?.authorDetails?.firstName?.[0]}</span>
+                        <span className="text-3xxl text-white ">{bannerShow?.[0]?.authorDetails?.firstName?.[0]}</span>
                         :
                         <>
                           <img
@@ -68,7 +68,7 @@ export default function Banner({ bannerShow, router }) {
                 </div>
               </div>
             </div>
-            <div className="w-full max-w-full w-full sm:w-5/12">
+            <div className=" max-w-full w-full sm:w-5/12">
               <div className="text-lg text-current font-light line-clamp-4 desc">
                 <div dangerouslySetInnerHTML={{ __html: bannerShow?.[0]?.description.replaceAll("<br>", " ").replace(/p-\[24px_60px_10px\]/g, "") }} />
               </div>
