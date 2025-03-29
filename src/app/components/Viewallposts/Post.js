@@ -46,13 +46,13 @@ export default function Post({ data, activeIndex, scrollX }) {
               />
             }
           </div>
-          <h1 className="text-3xxl font-bold  text-black hover:underline   leading-[2.625rem] "> {data.title}</h1></Link>
-        <p className="text-base text-black my-3">{moment(data.createdOn).format("MMM DD, YYYY")} </p>
+          <h1 className="text-3xxl font-bold  text-black dark:text-white hover:underline line-clamp-1 overflow-hidden  leading-[2.625rem] "> {data.title}</h1></Link>
+        <p className="text-base text-black dark:text-white my-3">{moment(data.createdOn).format("MMM DD, YYYY")} </p>
         <div className="text-lg text-current  font-light line-clamp-3 mb-3 desc">
           <div dangerouslySetInnerHTML={{ __html: data?.description.replaceAll("<br>", "").replaceAll(/<img[^>]*>/g, "").replace(/p-\[24px_60px_10px\]/g, "") }}></div>
         </div>
         <div className="flex items-center gap-x-2 mt-auto">
-          <div class="flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300">
+          <div className="flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300 dark:text-white">
             {data?.authorDetails?.profileImagePath == "" || data?.authorDetails?.profileImagePath == null ?
               <>
                 {data?.authorDetails?.FirstName ?

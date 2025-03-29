@@ -15,6 +15,7 @@ export default function Banner({ bannerShow, router }) {
 
   return (
     <>
+    
       {bannerShow?.length != 0 &&
         <div className="block">
           <div className='h-[512px]'>
@@ -37,7 +38,7 @@ export default function Banner({ bannerShow, router }) {
               <h1 className="text-4xl2 font-bold text-black line-clamp-2 cursor-pointer" onClick={() => handleNavigation(bannerShow?.[0]?.slug)}>{bannerShow?.[0]?.title}</h1>
               <p className="text-base text-black my-3">{moment(bannerShow?.[0]?.createdOn).format("MMM DD, YYYY")}</p>
               <div className="flex items-center gap-x-2">
-                <div class="flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300 ">
+                <div className="flex items-center justify-center relative h-8 w-8 overflow-hidden rounded-full bg-slate-300 ">
                   {bannerShow?.[0] ?
                     <>
                       {bannerShow?.[0]?.authorDetails?.firstName?.[0] ?

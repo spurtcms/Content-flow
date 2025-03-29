@@ -1,5 +1,5 @@
 
-export const GET_POSTS_LIST_QUERY = `query ChannelEntriesListNew($commonFilter:Filter,$sort:Sort,
+export const GET_POSTS_LIST_QUERY = `query ChannelEntriesList($commonFilter:Filter,$sort:Sort,
   $entryFilter:EntriesFilter,
     $AdditionalData:EntriesAdditionalData){
       ChannelEntriesList(commonFilter:$commonFilter,sort:$sort,

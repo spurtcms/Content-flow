@@ -7,6 +7,7 @@ import { DarkThemeProvider } from "./utilities/Theme/DarkThemeProvider";
 import NextTopLoader from "nextjs-toploader";
 import Head from "next/head";
 import Script from "next/script";
+import CustomProviders from "@/StoreConfiguration/CustomProviders";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,6 +26,8 @@ export default function RootLayout({ children }) {
      
       </Head> */}
       <body className="bg-transparent">
+        <CustomProviders>
+
       <NextTopLoader
             color="#00AEEF"
             initialPosition={0.08}
@@ -35,8 +38,8 @@ export default function RootLayout({ children }) {
             easing="ease"
             speed={200}
             shadow="0 0 10px #2299DD,0 0 5px #2299DD"
-            template='<div class="bar" role="bar"><div class="peg"></div></div> 
-        <div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
+        //     template='<div class="bar" role="bar"><div class="peg"></div></div> 
+        // <div class="spinner" role="spinner"><div class="spinner-icon"></div></div>'
             zIndex={1600}
             showAtBottom={false}
           />
@@ -48,6 +51,7 @@ export default function RootLayout({ children }) {
      
       </main>
       </DarkThemeProvider>
+        </CustomProviders>
       
       </body>
    

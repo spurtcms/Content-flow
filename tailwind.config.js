@@ -14,6 +14,11 @@ module.exports = {
       },
     },
   },
-  plugins: [],
-  darkMode: 'class'
+  plugins: [
+    require('@tailwindcss/forms'), // Add forms plugin
+    require('@tailwindcss/typography'), // Add typography plugin
+    require('@tailwindcss/aspect-ratio'), // Add aspect-ratio plugin
+    require('@tailwindcss/line-clamp'), // Add line-clamp plugin
+  ],
+  darkMode: 'class',
 };
