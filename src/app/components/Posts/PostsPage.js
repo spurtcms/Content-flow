@@ -8,6 +8,7 @@ import PostSkeleton from "@/app/utilities/Skeleton/PostSkeleton";
 import ViewAllSkeleton from "@/app/utilities/Skeleton/ViewAllSkeleton";
 import Post from "../Viewallposts/Post";
 import { imageUrl, imageUrlAlt } from "@/app/utilities/ImagePath";
+import DOMPurify from 'dompurify';
 
 export default function PostsPage({ params, Listdata, slugdata }) {
 
@@ -69,7 +70,24 @@ console.log(slugdata,"slugdata")
   }, [isScriptLoaded]);
 
 
-
+ const sanitizeHTML = (html) => {
+    const sanitized = DOMPurify.sanitize(html, {
+        // FORBID_TAGS: ['h1', 'img'], // Remove <h1> and <img> tags
+        FORBID_ATTR: ['style'], // Remove inline styles for consistency
+    });
+    // Remove first <img> tag found in the sanitized HTML
+    return sanitized
+        .replace(/<br\s*\/?>/g, " ") // Replace <br> tags with spaces
+            .replace(/<div className="card[^"]*"(.*?)<\/div>/g, '') // Remove specific <div> tags
+            // .replace(/<img[^>]*>/g, "") // Remove all <img> tags
+            .replace(/<h1[^>]*>.*?<\/h1>/, "") // Remove the first <h1> tag and its content
+            .replace(/p-\[24px_60px_10px\]/g, "") // Remove specific styles
+            .replace(/<\/?[^>]+(>|$)/g, "") // Remove all remaining HTML tags
+            .split(/\s+/) // Split text into words
+            // .slice(0, 32) // Limit to the first 35 words
+            .join(" ") // Join the words back into a string
+            .concat("...") // Add ellipsis if text is truncated
+};
 
 
 
@@ -81,7 +99,7 @@ console.log(slugdata,"slugdata")
       <div className="md:lg-0 px-4">
         <nav aria-label="breadcrumb">
           <ol className="flex flex-wrap space-x-2 items-center mb-8 dark:text-white">
-            <Link href={cateId == null ? "/" : `/?cateId=${cateId}&scroll=${scrollX}`}><li><p className="text-xl text-gray-600 flex justify-start gap-2 items-center"> <img src="/img/home.svg" className="h-5" />Home</p></li> </Link>
+            <Link href={cateId == null ? "/" : `/?cateId=${cateId}&scroll=${scrollX}`}><li><p className="text-xl text-gray-600  dark:text-white flex justify-start gap-2 items-center"> <img src="/img/home.svg" className="h-5" />Home</p></li> </Link>
             <li> <img src="/img/arrow-breadcrumbs.svg" /> </li>
             <li clasNames="text-black text-xl line-clamp-1 dark:text-white w-80" aria-current="page">{postes?.ChannelEntryDetail?.title ? postes?.ChannelEntryDetail?.title : <div role="status" className="max-w-sm animate-pulse"> <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48"></div></div>}</li>
           </ol>
@@ -108,7 +126,7 @@ console.log(slugdata,"slugdata")
               <a className="text-primary text-base"> {postes?.ChannelEntryDetail?.authorDetails?.firstName} {postes?.ChannelEntryDetail?.authorDetails?.lastName}  </a>
             </div>
           </div>
-          {/* <div className="block mb-8 h-[496px]">
+          <div className="block mb-8 h-[496px]">
             <Image
              loader={imageLoader}
               src={`${postes?.ChannelEntryDetail?.coverImage}`}
@@ -120,14 +138,19 @@ console.log(slugdata,"slugdata")
               blurDataURL={"/img/no-image.png"}
               className='h-full-imp'
             />
-          </div> */}
+          </div>
         </> : <> <PostSkeleton /></>}
 
 
         <p className="text-base text-black mb-1">{moment(postes?.ChannelEntryDetail?.createdOn).format("MMM DD, YYYY")} </p>
-        <div className="text-lg text-current font-light leading-normal mb-6 desc [&_iframe]:aspect-video" dangerouslySetInnerHTML={{
+        {/* <div className="text-lg text-current font-light leading-normal mb-6 desc [&_iframe]:aspect-video" dangerouslySetInnerHTML={{
           __html: postes?.ChannelEntryDetail?.description?.replaceAll("<br>", " ").replace(/p-\[24px_60px_10px\]/g, "")
-        }} />
+        }} /> */}
+         <div className="text-gray-500 dark:text-white text-lg font-light  mb-3 desc "
+                                dangerouslySetInnerHTML={{
+                                    __html: sanitizeHTML(postes?.ChannelEntryDetail?.description)
+                                }}
+                            ></div>
         {postesMore?.ChannelEntriesList?.channelEntriesList?.length != 0 && <><div className="border-b border-gray-200 block mb-8 mt-10"></div>
           <h1 className="text-3xxl font-bold text-black mb-10"> More Stories </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-8 mb-8">

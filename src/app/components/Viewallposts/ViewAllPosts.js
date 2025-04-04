@@ -7,7 +7,7 @@ import Post from './Post';
 import ViewAllSkeleton from '../../utilities/Skeleton/ViewAllSkeleton';
 import { fetchGraphQl, fetchGraphQls } from '../../api/graphicql';
 import { PostFilterApi } from '@/app/api/ServerSide/Post';
-import { defaultCategorySlug } from '@/app/api/url';
+import { channel_name, defaultCategorySlug } from '@/app/api/url';
 
 
 export default function ViewAllPostsComp() {
@@ -32,6 +32,7 @@ export default function ViewAllPostsComp() {
       "entryFilter": {
         "Status": "Publish",
         "categorySlug": defaultCategorySlug,
+         "ChannelName": channel_name
       },
       "AdditionalData": {
         "authorDetails": true,

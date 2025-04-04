@@ -15,8 +15,8 @@ import { PostFilterApi } from "@/app/api/ServerSide/Post";
 import { defaultCategorySlug } from "@/app/api/url";
 
 
-export default function HomePage({ Listdata, postdatas }) {
-   console.log(postdatas,"Listdata")
+export default function HomePage({ Listdata }) {
+   console.log(Listdata,"Listdata")
   // let cateId=0
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -27,7 +27,9 @@ export default function HomePage({ Listdata, postdatas }) {
   const [scrollX, setscrollX] = useState(0);
   const [loader, setLoader] = useState(false)
   const [triger, setTriger] = useState(0)
+   console.log(searchParams,"seacnsdjkfsd")
 
+  console.log(Listdata, "kkkkkkkkk")
   const popstate = usePathname()
   let cateId = null
 
@@ -79,11 +81,13 @@ export default function HomePage({ Listdata, postdatas }) {
     //   handlePostSplit(posts)
     // }
   }, [cateId])
-  useEffect(() => {
-    if (postdatas) {
-      handlePostSplit(postdatas)
-    }
-  }, [postdatas])
+
+
+  // useEffect(() => {
+  //   if (postdatas) {
+  //     handlePostSplit(postdatas)
+  //   }
+  // }, [postdatas])
 
 
   // useEffect(() => {
@@ -135,7 +139,7 @@ export default function HomePage({ Listdata, postdatas }) {
   }, [popstate])
    
 
-   
+   console.log(postesCategory, "postesCategory")
   return (
     <>
       {loader == true ?

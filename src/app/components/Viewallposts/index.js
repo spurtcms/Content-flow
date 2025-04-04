@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import ViewAllPostsComp from './ViewAllPosts'
 import { fetchGraphQl } from '@/app/api/graphicql'
 import { GET_POSTS_LIST_QUERY } from '@/app/api/query'
+import { channel_name } from '@/app/api/url'
 
 export async function generateMetadata({params}) {
 
@@ -17,7 +18,8 @@ export async function generateMetadata({params}) {
       },
       "entryFilter": {
         "Status": "Publish",
-        "categorySlug": params.slug
+        "categorySlug": params.slug,
+         "ChannelName": channel_name
       },
       "AdditionalData": {
         "authorDetails": true,

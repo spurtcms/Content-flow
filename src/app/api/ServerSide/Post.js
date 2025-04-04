@@ -1,6 +1,7 @@
 'use server'
 import { fetchGraphQl } from "../graphicql"
 import { GET_POSTS_LIST_QUERY } from "../query"
+import { channel_name } from "../url"
 
 
 
@@ -17,6 +18,7 @@ export const PostFilterApi = async (limit, offset, cateId) => {
         "entryFilter": {
           "Status": "Publish",
           "categorySlug": cateId, 
+           "ChannelName": channel_name
         },
         "AdditionalData": {
           "authorDetails": true, 
@@ -40,6 +42,7 @@ export const ViewAllPostApi = async (cateId) => {
         "entryFilter": {
           "Status": "Publish",
           "categorySlug": cateId, 
+           "ChannelName": channel_name
         },
         "AdditionalData": {
           "authorDetails": true,

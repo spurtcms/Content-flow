@@ -1,6 +1,12 @@
+import NavBar from "../components/NavBar";
 import ViewAllAction from "../components/Viewallposts";
 
 export default function ViewAllPosts({Listdata}) {
   
-  return (<ViewAllAction/>)
+  return (
+<>
+{/* <NavBar/> */}
+<ViewAllAction/>
+</>
+)
 }
