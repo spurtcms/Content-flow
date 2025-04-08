@@ -70,7 +70,7 @@ export default function Post({ data, activeIndex, scrollX }) {
         <p className="text-base text-black dark:text-white my-3">{moment(data.createdOn).format("MMM DD, YYYY")} </p>
         <div className="text-lg text-current  font-light line-clamp-3 mb-3 desc">
           {/* <div dangerouslySetInnerHTML={{ __html: data?.description.replaceAll("<br>", "").replaceAll(/<img[^>]*>/g, "").replace(/p-\[24px_60px_10px\]/g, "") }}></div> */}
-          <div className="text-gray-500 dark:text-white text-lg font-light line-clamp-3 overflow-hidden mb-3 desc "
+          <div className="dark:text-white text-black  text-lg font-light line-clamp-3 overflow-hidden mb-3 desc "
                                 dangerouslySetInnerHTML={{
                                     __html: sanitizeHTML(data?.description)
                                 }}

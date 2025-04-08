@@ -99,9 +99,9 @@ console.log(slugdata,"slugdata")
       <div className="md:lg-0 px-4">
         <nav aria-label="breadcrumb">
           <ol className="flex flex-wrap space-x-2 items-center mb-8 dark:text-white">
-            <Link href={cateId == null ? "/" : `/?cateId=${cateId}&scroll=${scrollX}`}><li><p className="text-xl text-gray-600  dark:text-white flex justify-start gap-2 items-center"> <img src="/img/home.svg" className="h-5" />Home</p></li> </Link>
+            <Link href={cateId == null ? "/" : `/?cateId=${cateId}&scroll=${scrollX}`}><li><p className="text-xl text-black  dark:text-white flex justify-start gap-2 items-center"> <img src="/img/home.svg" className="h-5" />Home</p></li> </Link>
             <li> <img src="/img/arrow-breadcrumbs.svg" /> </li>
-            <li clasNames="text-black text-xl line-clamp-1 dark:text-white w-80" aria-current="page">{postes?.ChannelEntryDetail?.title ? postes?.ChannelEntryDetail?.title : <div role="status" className="max-w-sm animate-pulse"> <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48"></div></div>}</li>
+            <li className="text-black text-xl line-clamp-1 dark:text-white w-80" aria-current="page">{postes?.ChannelEntryDetail?.title ? postes?.ChannelEntryDetail?.title : <div role="status" className="max-w-sm animate-pulse"> <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48"></div></div>}</li>
           </ol>
         </nav>
         {loader == true ? <> <h1 className="text-4xl2 text-black font-bold mb-4">{postes?.ChannelEntryDetail?.title}</h1>
@@ -146,7 +146,7 @@ console.log(slugdata,"slugdata")
         {/* <div className="text-lg text-current font-light leading-normal mb-6 desc [&_iframe]:aspect-video" dangerouslySetInnerHTML={{
           __html: postes?.ChannelEntryDetail?.description?.replaceAll("<br>", " ").replace(/p-\[24px_60px_10px\]/g, "")
         }} /> */}
-         <div className="text-gray-500 dark:text-white text-lg font-light  mb-3 desc "
+         <div className="text-black dark:text-white text-lg font-light  mb-3 desc "
                                 dangerouslySetInnerHTML={{
                                     __html: sanitizeHTML(postes?.ChannelEntryDetail?.description)
                                 }}

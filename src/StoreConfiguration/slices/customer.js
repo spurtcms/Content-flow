@@ -9,6 +9,7 @@ const initialState = {
     header_keyword: "",
     Header_logo_api_result_redux:"",
     Fetching_View_Detail:{},
+    postes_Redux_Func:{}
 };
 
 
@@ -39,13 +40,15 @@ export const customerSlice = createSlice({
         Fetching_View_Detail:(state, action)=>{
             state.Fetching_View_Detail = action.payload;
         },
-     
+        postes_Redux_Func:(state, action)=>{
+            state.postes_Redux_Func = action.payload;
+        }
 
 
     },
 });
 
 
-export const { addCount, EntryList_Redux_function, header_slug_Reduc_function ,Header_keyword_redux_function,Header_logo_api_result_redux_function , Header_api_result_redux_function, Fetching_View_Detail} = customerSlice.actions;
+export const { addCount, EntryList_Redux_function, header_slug_Reduc_function ,Header_keyword_redux_function,Header_logo_api_result_redux_function , Header_api_result_redux_function, Fetching_View_Detail,postes_Redux_Func} = customerSlice.actions;
 
 export default customerSlice.reducer;

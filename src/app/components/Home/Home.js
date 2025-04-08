@@ -15,7 +15,7 @@ import { PostFilterApi } from "@/app/api/ServerSide/Post";
 import { defaultCategorySlug } from "@/app/api/url";
 
 
-export default function HomePage({ Listdata }) {
+export default function HomePage({ Listdata , postdatas }) {
    console.log(Listdata,"Listdata")
   // let cateId=0
   const router = useRouter()
